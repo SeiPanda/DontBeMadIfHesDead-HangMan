@@ -57,7 +57,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-flex-direction: column;
+    flex-direction: column;
+    row-gap: 2rem;
+
     grid-template-rows: 1fr 1fr;
   
 }
@@ -65,18 +67,20 @@ flex-direction: column;
 .lines{
     display: flex;
     width: calc(100vw - 4rem);
+    height: 100%;
     flex-direction: row;
+   
     column-gap: 4rem;
     justify-content: center;
+    align-items: center;
 }
 
 
-#line2{
-    margin-top: 2.5rem;
-}
+
 
 .lines > div {
     font-size: 3.5rem;
+ 
 }
 
 
@@ -204,10 +208,11 @@ flex-direction: column;
     border-radius: 0.4rem;
     text-align: center;
     font-size: 1.5rem;
-    font-family: animeital;
+    font-family: hero;
     background-color: #404040;
     outline: none;
     color: white;
+    text-transform: uppercase;
 }
 
 #submitButton{

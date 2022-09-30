@@ -1,13 +1,9 @@
-let inputWord = "ABC";
+let inputWord = "";
 let clickCount = 1;
 let allClick = false;
 let dead = false;
 
 document.querySelector("#submitButton").addEventListener("click", clicksubmitButton);
-document.querySelector("#closingButton").addEventListener("click", closeButton);
-
-
-console.log(inputWord)
 
 
 document.querySelectorAll(".ABC").forEach(item => {
@@ -64,8 +60,8 @@ function handleClickABC(e){
 
 function restartGame(){
 
-  clickCount = 0;
-  document.querySelector("#hang_manArea > img").src = './img/' + 0 + 'dead.png';
+  clickCount = 1;
+  document.querySelector("#hang_manArea > img").src = './img/0dead.png';
   document.querySelectorAll(".ABC").forEach(item => {
     if(item.classList.contains("disable")){
       item.classList.remove("disable");
@@ -76,6 +72,8 @@ function restartGame(){
     document.querySelectorAll(".lines").forEach(item => {
       item.innerHTML = "";
     })
+
+    document.querySelector("#inputName").value = "";
   })
 
   
@@ -118,12 +116,7 @@ function proveIfAllGuessed(){
 }
 
 function GetValueInput(){
-
-  console.log("h");
-
-  let input = document.querySelector("#inputName").value;
-
-  console.log(input)
+  let input = document.querySelector("#inputName").value.toUpperCase();
   document.querySelector("#PopUpName").style.display = "none";
   return input;
 }
