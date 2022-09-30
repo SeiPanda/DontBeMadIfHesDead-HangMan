@@ -1,7 +1,10 @@
-let inputWord = "OLIVE";
+let inputWord = "QUALLENBISS";
 let clickCount = 1;
 let allClick = false;
 let dead = false;
+
+
+createDivs(inputWord);
 
 document.querySelectorAll(".ABC").forEach(item => {
     item.addEventListener("click", handleClickABC);
@@ -13,20 +16,21 @@ function handleClickABC(e){
 
 
   document.querySelectorAll(".item_input").forEach(item => {
-    if(item.classList.contains("guessed")){
-      allClick = true;
-    }else{
+    if(!item.classList.contains("guessed")){
+
       allClick = false;
+      return;
+    }else{
+      allClick = true;
     }
   })
-
-
-
 
     let shortCut = e.target;
     let currentClickedItem;
 
     currentClickedItem = shortCut.parentNode.id;
+
+    
 
     if(!document.getElementById(currentClickedItem).classList.contains("disable")){
       
@@ -47,7 +51,7 @@ function handleClickABC(e){
             alert("its dead!!!!")
             setTimeout( () => {
               restartGame();
-          }, 700 );
+          }, 1000 );
             return;
             
           }
@@ -74,4 +78,29 @@ function handleClickABC(e){
       })
 
     })
+  }
+
+  function createDivs(inputWord){
+
+    if(inputWord.length >= 7){
+      document.querySelector("#line2").classList.remove("hidden");
+    }else{
+      document.querySelector("#line2").classList.add("hidden");
+    }
+
+    for(k = 0; k < inputWord.length; k++){
+      if(k >= 7 && k <= 14){
+        div = '<div id="item'+ k +'" class="item_input"><span>-</span></div>';
+        document.querySelector("#line2").innerHTML += div;
+      }else{
+        if(k == 0){
+          div = '<div id="item'+ k +'" class="item_input"><span>-</span></div>';
+          document.querySelector("#line1").innerHTML += div;
+        }else{
+          div = '<div id="item'+ k +'" class="item_input"><span>-</span></div>';
+          document.querySelector("#line1").innerHTML += div;
+        }
+      }
+      
+    }
   }
