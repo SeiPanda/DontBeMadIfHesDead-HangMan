@@ -4,8 +4,15 @@
 }
 
 @font-face {
-    font-family: chalk;
-    src: url(./font/Chalk\ Scratches\ Rough\ Bold.otf);
+    font-family: hero;
+    src: url(./font/Antihero.ttf);
+}
+
+:root {
+    --primary-color: rgb(89, 163, 166);
+    --panda-color1: #d0eba4;
+    --panda-color: #9FE5CE;
+    --gradient: linear-gradient(126deg, rgb(67, 250, 253)0%,  rgb(88, 242, 245)50%, rgb(1, 49, 71) 100%);
 }
 
 body{
@@ -125,4 +132,95 @@ flex-direction: column;
 
 .hidden {
     display: none;
+}
+
+/*Popup*/
+
+.fas{
+    font-size: 3rem;
+}
+
+#PopUpName{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.795);
+}
+
+#inner{
+    max-width: 25rem;
+    height: fit-content;
+    width: 90vw;
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    background: var(--gradient);
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: 4px 4px 10px #292929;
+}
+
+#popUpInner {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: #404040;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    font-family: hero;
+    font-size: 1.5rem;
+    box-shadow: 4px 4px 10px #292929;
+}
+
+
+
+#inputLabel{
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: span col2-start;  
+}
+
+#inputName{
+    grid-row-start: 2;
+    grid-column-start: 3;
+    width: 95%;
+    justify-self: end;
+    border: 1px solid silver;
+    border-radius: 0.4rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: animeital;
+    background-color: #404040;
+    outline: none;
+    color: white;
+}
+
+#submitButton{
+    margin-top: 20px;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: #404040;
+    box-shadow: 4px 4px 10px #292929;
+    color: white;
+    text-shadow: 1px 1px 2px #0a0a0a;
+    border:none;
+    border-radius: 0.4rem;
+    font-size: 1.5rem;
+    font-family: hero;
 }
