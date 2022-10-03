@@ -19,9 +19,7 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
-    background-image: url("./img/bRlVYS.webp");
-    background-repeat: no-repeat;
-    background-size: cover; 
+    background-color: #111111;
 
     color: aliceblue
 }
@@ -168,7 +166,8 @@ body{
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
     background: var(--gradient);
-    padding: 0.5rem;
+    padding: 1rem;
+    row-gap: 1rem;
     border-radius: 0.4rem;
     box-shadow: 4px 4px 10px #292929;
 }
