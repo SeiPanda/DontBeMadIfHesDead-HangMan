@@ -19,8 +19,6 @@ function handleClickABC(e){
 
   currentClickedItem = shortCut.parentNode.id;
 
-  
-
   if(!document.getElementById(currentClickedItem).classList.contains("disable")){
     
     if(inputWord.includes(currentClickedItem)){
@@ -31,7 +29,6 @@ function handleClickABC(e){
           document.querySelector("#item" + i).classList.add("visible");
           document.querySelector("#item" + i).classList.add("guessed");
           document.getElementById(currentClickedItem).classList.add("disable");
-          
         }
       }   
     }else{
@@ -57,11 +54,10 @@ function handleClickABC(e){
   }
 }
 
-
 function restartGame(){
-
   clickCount = 1;
   document.querySelector("#hang_manArea > img").src = './img/0dead.png';
+
   document.querySelectorAll(".ABC").forEach(item => {
     if(item.classList.contains("disable")){
       item.classList.remove("disable");
@@ -75,9 +71,6 @@ function restartGame(){
 
     document.querySelector("#inputName").value = "";
   })
-
-  
-  
 }
 
 function createDivs(inputWord){
@@ -117,14 +110,43 @@ function proveIfAllGuessed(){
 
 function GetValueInput(){
   let input = document.querySelector("#inputName").value.toUpperCase();
-  document.querySelector("#PopUpName").style.display = "none";
-  return input;
+  let isInputCorrect = ProveInput(input);
+
+  if(isInputCorrect){
+    document.querySelector("#PopUpName").style.display = "none";
+    return input;
+  }
+  return "";
 }
 
 function clicksubmitButton(){
-  let input = GetValueInput();
 
-  inputWord = input;
+  
+  inputWord = GetValueInput();
 
-  createDivs(inputWord);
+  if(inputWord !== ""){
+    createDivs(inputWord);
+  }else{
+
+    alert("Ungültige Eingabe: Nur Buchstaben!");
+  }
+
+}
+
+function ProveInput(input){
+  var zeichenKette = input;
+  let bool = false;
+  let i = 0;
+  
+  while(zeichenKette.length > i){
+    if(zeichenKette.search(/^[a-zA-Z]+$/) == -1){
+      bool = false;
+      return;
+    }else{
+      bool = true;
+    }
+    i++;
+  }
+  
+  return bool;
 }
